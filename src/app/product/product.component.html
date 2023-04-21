@@ -1,0 +1,118 @@
+<app-navbar></app-navbar>
+cart :{{ count }}
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm border d-flex flex-column">
+      One of three columns
+      <img
+        src="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png"
+        alt=""
+        class="w-25"
+      />
+      <div class="d-flex justify-content-between">
+        <span (click)="add()">
+            <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-plus"
+          viewBox="0 0 16 16"
+        >
+          <path
+            d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+          />
+        </svg>
+        </span>
+        <span (click)="remove()">
+            <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          fill="currentColor"
+          class="bi bi-dash"
+          viewBox="0 0 16 16"
+        >
+          <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+        </svg>
+        </span>
+      </div>
+    </div>
+
+    <div class="col-sm border d-flex flex-column">
+        two of three columns
+        <img
+          src="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png"
+          alt=""
+          class="w-25"
+        />
+        <div class="d-flex justify-content-between">
+          <span (click)="add()">
+              <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-plus"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+            />
+          </svg>
+          </span>
+          <span (click)="remove()">
+              <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-dash"
+            viewBox="0 0 16 16"
+          >
+            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+          </svg>
+          </span>
+        </div>
+      </div>
+
+      <div class="col-sm border d-flex flex-column">
+        three of three columns
+        <img
+          src="https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png"
+          alt=""
+          class="w-25"
+        />
+        <div class="d-flex justify-content-between">
+          <span (click)="add()">
+              <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-plus"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+            />
+          </svg>
+          </span>
+          <span (click)="remove()">
+              <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-dash"
+            viewBox="0 0 16 16"
+          >
+            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+          </svg>
+          </span>
+        </div>
+      </div>
+    
+  </div>
+</div>
