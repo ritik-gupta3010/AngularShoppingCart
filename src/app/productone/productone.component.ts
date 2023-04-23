@@ -13,14 +13,14 @@ export class ProductoneComponent {
   addProductToCart(product:any) {
     this.productAdded.emit(product);
     this.count=this.count+1;
-    console.log("in product one",product)
+    console.log("in product one add",product)
   }
   removeProductToCart(product:any) {
-    this.productremoved.emit(this.product)
     if(this.count!=0)
     {
+      this.productremoved.emit(this.product)
       this.count=this.count-1;
     }
-    console.log("in product one",product)
+    console.log("in product one removed",product)
   }
 }

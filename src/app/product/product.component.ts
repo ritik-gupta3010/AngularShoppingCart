@@ -18,7 +18,6 @@ export class ProductComponent {
     ); // find product by name
     if (!productExistInCart) {
       this.cartProductList.push({ ...product, num: 1 });
-      // enhance "porduct" opject with "num" property
       return;
     }
     productExistInCart.num += 1;
@@ -28,11 +27,14 @@ export class ProductComponent {
       ({ name }: { name: any }) => name === product.name
     ); // find product by name
     // console.log(productExistInCart)
+
     if (productExistInCart.num!=0) {
       productExistInCart.num -= 1;
-      // enhance "porduct" opject with "num" property
-      return;
     }
+    if (productExistInCart.num==0) {
+      this.cartProductList.pop({...product})
+    }
+
   }
   total() {
     return this.cartProductList.reduce(
