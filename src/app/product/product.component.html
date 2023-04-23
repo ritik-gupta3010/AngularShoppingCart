@@ -1,4 +1,4 @@
-<app-navbar></app-navbar> 
+<!-- <app-navbar></app-navbar> -->
 <!-- cart :{{ count }}
 
 <div class="container">
@@ -122,5 +122,26 @@
   </div>
 </div> -->
 <!-- <div *ngFor="let product of productList">{{product.name}}{{product.price}}<div></div> -->
-<app-productone *ngFor="let product of productList" [product]="product">
+<app-productone
+  *ngFor="let product of productList"
+  [product]="product"
+  (productAdded)="addProductToCart($event)"
+  (productremoved)="removeProductToCart($event)"
+>
 </app-productone>
+
+
+<h1>shopping cart({{total()}})</h1>
+<!-- <button routerLink="/cart">
+  <h1>shopping cart({{ total() }})</h1>
+</button> -->
+<app-cart *ngFor="let product of cartProductList" [product]="product">
+</app-cart>
+
+<!-- <div>
+  <h1>shopping cart({{cartProductList.length}})</h1>
+  <div>
+    <div *ngFor="let product of cartProductList">{{product.name}}<div></div>
+    <div>{{product.price}}<div></div>
+  </div>
+</div> -->

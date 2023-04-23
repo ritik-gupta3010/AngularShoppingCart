@@ -6,5 +6,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./cart.component.css']
 })
 export class CartComponent {
-  @Input() products?: any[];
+  @Input() product: any=[];
 }

@@ -1,4 +1,10 @@
-<div>{{product.name}}<div><button>+</button>
-<div>{{product.price}}<div>
-
-    {{product.product}}
+<div class="border d-flex m-2 p-2" style="width: fit-content">
+  <div class="m-2">
+    <div>{{ product.name }}</div>
+    <div>{{ product.price }}</div>
+  </div>
+  <div class="m-2">
+    <button (click)="removeProductToCart(product)">-</button>
+    <button (click)="addProductToCart(product)">+</button></div>
+    {{count}}
+</div>

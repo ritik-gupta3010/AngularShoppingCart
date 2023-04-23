@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-productone',
@@ -7,5 +7,20 @@ import { Component, Input } from '@angular/core';
 })
 export class ProductoneComponent {
   @Input() product?: any;
-  
+  @Output() productAdded = new EventEmitter();
+  @Output() productremoved = new EventEmitter();
+  count=0  
+  addProductToCart(product:any) {
+    this.productAdded.emit(product);
+    this.count=this.count+1;
+    console.log("in product one",product)
+  }
+  removeProductToCart(product:any) {
+    this.productremoved.emit(this.product)
+    if(this.count!=0)
+    {
+      this.count=this.count-1;
+    }
+    console.log("in product one",product)
+  }
 }
