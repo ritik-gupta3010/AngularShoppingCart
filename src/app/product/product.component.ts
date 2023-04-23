@@ -26,14 +26,17 @@ export class ProductComponent {
     const productExistInCart = this.cartProductList.find(
       ({ name }: { name: any }) => name === product.name
     ); // find product by name
-    // console.log(productExistInCart)
+    console.log(productExistInCart)
+    console.log(product)
 
     if (productExistInCart.num!=0) {
       productExistInCart.num -= 1;
     }
-    if (productExistInCart.num==0) {
-      this.cartProductList.pop({...product})
-    }
+    // if (productExistInCart.num==0) {
+    //   this.cartProductList.pop({...product})
+    // }
+    const filteredPeople = productExistInCart.filter((item:any) => item.name !== product.name);
+    this.cartProductList ={...filteredPeople}
 
   }
   total() {
