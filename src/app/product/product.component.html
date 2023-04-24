@@ -1,7 +1,7 @@
 <!-- <app-navbar></app-navbar> -->
-<!-- cart :{{ count }}
+<!-- cart :{{ count }} -->
 
-<div class="container">
+<!-- <div class="container">
   <div class="row">
     <div class="col-sm border d-flex flex-column">
       One of three columns
@@ -11,7 +11,7 @@
         class="w-75 h-75"
       />
       <div class="d-flex justify-content-between">
-        <Button type="button" class="btn btn-primary"(click)="add()">
+        <Button type="button" class="btn btn-primary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -25,7 +25,7 @@
             />
           </svg>
         </Button>
-        <Button type="button" class="btn btn-primary"(click)="remove()">
+        <Button type="button" class="btn btn-primary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -50,7 +50,7 @@
         class="w-75 h-75"
       />
       <div class="d-flex justify-content-between">
-        <Button type="button" class="btn btn-primary"(click)="add()">
+        <Button type="button" class="btn btn-primary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -64,7 +64,7 @@
             />
           </svg>
         </Button>
-        <Button type="button" class="btn btn-primary"(click)="remove()">
+        <Button type="button" class="btn btn-primary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -89,7 +89,7 @@
         class="w-75 h-75"
       />
       <div class="d-flex justify-content-between">
-        <Button type="button" class="btn btn-primary"(click)="add()">
+        <Button type="button" class="btn btn-primary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -103,7 +103,7 @@
             />
           </svg>
         </Button>
-        <Button type="button" class="btn btn-primary"(click)="remove()">
+        <Button type="button" class="btn btn-primary">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -120,25 +120,38 @@
       </div>
     </div>
   </div>
-</div> -->
+</div>  -->
 <!-- <div *ngFor="let product of productList">{{product.name}}{{product.price}}<div></div> -->
 
 <h1>product list</h1>
-<app-productone
+<div class="row itemsBlock">
+  <div *ngFor="let product of productList" class="col-md-4 col-sm-6 col-12">
+    <app-productone
+      [product]="product"
+      (productAdded)="addProductToCart($event)"
+      (productremoved)="removeProductToCart($event)"
+    >
+    </app-productone>
+  </div>
+</div>
+<!-- <app-productone
   *ngFor="let product of productList"
   [product]="product"
   (productAdded)="addProductToCart($event)"
   (productremoved)="removeProductToCart($event)"
+  style="width: fit-content; display: block;"
 >
-</app-productone>
+</app-productone> -->
 
-
-<h1>shopping cart({{total()}})</h1>
-<!-- <button routerLink="/cart">
-  <h1>shopping cart({{ total() }})</h1>
-</button> -->
-<app-cart *ngFor="let product of cartProductList" [product]="product">
-</app-cart>
+<h1>shopping cart({{ total() }})</h1>
+<div class="row itemsBlock">
+  <div *ngFor="let product of cartProductList" class="col-md-4 col-sm-6 col-12">
+    <app-cart  [product]="product">
+    </app-cart>
+  </div>
+</div>
+<!-- <app-cart *ngFor="let product of cartProductList" [product]="product">
+</app-cart> -->
 
 <!-- <div>
   <h1>shopping cart({{cartProductList.length}})</h1>

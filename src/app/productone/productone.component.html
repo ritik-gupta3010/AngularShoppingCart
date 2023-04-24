@@ -1,7 +1,6 @@
 <div class="border m-2 p-2" style="width: fit-content">
   <div class="m-2">
     <img src="{{product.name}}" alt="">
-    <!-- <div>{{product.name}}</div> -->
     <div>{{ product.price }}</div>
   </div>
   <div class="m-2 d-flex justify-content-between">
@@ -10,3 +9,10 @@
     <button class="btn btn-success" (click)="addProductToCart(product)">+</button>
   </div>
 </div>  
+
+<!-- <div class="row itemsBlock">
+  <div *ngFor="let product of productList" class="col-md-4 col-sm-6 col-12">
+       <img class="itemImage" src="{{product.name}}" />
+       <span class="itemitle">{{product.price}}</span>
+  </div>
+</div> -->
