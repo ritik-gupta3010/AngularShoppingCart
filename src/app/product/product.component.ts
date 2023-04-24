@@ -23,21 +23,28 @@ export class ProductComponent {
     productExistInCart.num += 1;
   }
   removeProductToCart(product: any) {
+    console.log('cart', this.cartProductList);
     const productExistInCart = this.cartProductList.find(
       ({ name }: { name: any }) => name === product.name
     ); // find product by name
-    console.log(productExistInCart)
-    console.log(product)
+    // console.log("in product remove cart ")
+    console.log('exit', productExistInCart);
+    console.log(product);
 
-    if (productExistInCart.num!=0) {
+    if (productExistInCart.num != 0) {
       productExistInCart.num -= 1;
     }
-    // if (productExistInCart.num==0) {
-    //   this.cartProductList.pop({...product})
-    // }
-    const filteredPeople = productExistInCart.filter((item:any) => item.name !== product.name);
-    this.cartProductList ={...filteredPeople}
+    if (productExistInCart.num == 0) {
+      // this.cartProductList.pop({...product})
+      let itemTORemove = product.id;
+      console.log(itemTORemove);
+      let newArr1 = this.cartProductList.filter(
+        (obj: any) => obj.id !== itemTORemove
+      );
+      console.log(newArr1);
 
+      this.cartProductList = [...newArr1];
+    }
   }
   total() {
     return this.cartProductList.reduce(
@@ -46,9 +53,9 @@ export class ProductComponent {
     );
   }
   productList = [
-    { name: 'image1', price: 100 },
-    { name: 'image2', price: 200 },
-    { name: 'image3', price: 300 },
+    { id: 1, name: 'image1', price: 100 },
+    { id: 2, name: 'image2', price: 200 },
+    { id: 3, name: 'image3', price: 300 },
   ];
 
   cartProductList: any = [];
