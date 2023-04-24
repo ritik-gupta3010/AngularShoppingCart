@@ -1,4 +1,5 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { cartDetails, objectTotal } from '../common/cartDetails';
 @Component({
   selector: 'app-product',
   templateUrl: './product.component.html',
@@ -12,22 +13,27 @@ export class ProductComponent {
   //   this.cartProductList.push(product);
   //   console.log("in product",product)
   // }
-  constructor(){
-    localStorage.setItem(
-      'localStorageCartItem',
-      JSON.stringify(this.cartProductList)
-    );
-  }
   addProductToCart(product: any) {
     const productExistInCart = this.cartProductList.find(
       ({ id }: { id: any }) => id === product.id
     ); // find product by name
     if (!productExistInCart) {
       this.cartProductList.push({ ...product, num: 1 });
-      return;
     }
-    productExistInCart.num += 1;
+    else{
+      productExistInCart.num += 1;
+    }
+    const productExistInCartDetals = cartDetails.find(
+      ({ id }: { id: any }) => id === product.id
+    ); // find product by name
+    if (!productExistInCartDetals) {
+      cartDetails.push({ ...product, num: 1 });
+    }
+    else{
+      productExistInCartDetals.num += 1;
+    }
     console.log(this.cartProductList);
+    console.log(cartDetails);
   }
   removeProductToCart(product: any) {
     console.log('cart', this.cartProductList);
@@ -52,12 +58,31 @@ export class ProductComponent {
 
       this.cartProductList = [...newArr1];
     }
+    const productExistInCartDetails = cartDetails.find(
+      ({ id }: { id: any }) => id === product.id
+    ); // find product by name
+    if (productExistInCartDetails.num != 0) {
+      productExistInCartDetails.num -= 1;
+    }
+    if (productExistInCartDetails.num == 0) {
+      // this.cartProductList.pop({...product})
+      let itemTORemove = product.id;
+      console.log(itemTORemove);
+      let newArr1 = cartDetails.filter(
+        (obj: any) => obj.id !== itemTORemove
+      );
+      console.log(newArr1);
+
+      // cartDetails = [...newArr1];
+    }
   }
   total() {
-    return this.cartProductList.reduce(
+    const totalCount = this.cartProductList.reduce(
       (sum: any, prod: any) => (sum += prod.num),
       0
     );
+    objectTotal.total = totalCount;
+    return objectTotal.total
   }
   productList = [
     {
