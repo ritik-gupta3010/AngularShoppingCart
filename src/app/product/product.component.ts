@@ -12,6 +12,12 @@ export class ProductComponent {
   //   this.cartProductList.push(product);
   //   console.log("in product",product)
   // }
+  constructor(){
+    localStorage.setItem(
+      'localStorageCartItem',
+      JSON.stringify(this.cartProductList)
+    );
+  }
   addProductToCart(product: any) {
     const productExistInCart = this.cartProductList.find(
       ({ id }: { id: any }) => id === product.id
@@ -21,7 +27,7 @@ export class ProductComponent {
       return;
     }
     productExistInCart.num += 1;
-    console.log(this.cartProductList)
+    console.log(this.cartProductList);
   }
   removeProductToCart(product: any) {
     console.log('cart', this.cartProductList);
