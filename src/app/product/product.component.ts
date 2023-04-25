@@ -61,6 +61,7 @@ export class ProductComponent {
     const productExistInCartDetails = cartDetails.find(
       ({ id }: { id: any }) => id === product.id
     ); // find product by name
+    console.log('exist', productExistInCartDetails);
     if (productExistInCartDetails.num != 0) {
       productExistInCartDetails.num -= 1;
     }
@@ -72,8 +73,10 @@ export class ProductComponent {
         (obj: any) => obj.id !== itemTORemove
       );
       console.log(newArr1);
-
-      // cartDetails = [...newArr1];
+      while(cartDetails.length>0){
+        cartDetails.pop()
+      }
+      cartDetails.push(newArr1)
     }
   }
   total() {
